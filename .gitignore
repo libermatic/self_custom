@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+self_custom/docs/current
+__pycache__
+
+# Bench runtime
+node_modules/
+self_custom/public/node_modules
+yarn.lock

@@ -12,6 +12,19 @@ app_color = "grey"
 app_email = "info@libermatic.com"
 app_license = "MIT"
 
+fixtures = [
+    {
+        "doctype": "Property Setter",
+        "filters": [
+            [
+                "name",
+                "in",
+                ["Customer-mobile_no-fetch_from", "Customer-email_id-fetch_from"],
+            ]
+        ],
+    }
+]
+
 # Includes in <head>
 # ------------------
 
@@ -80,13 +93,7 @@ app_include_js = "/assets/js/self_custom.min.js"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {"Customer": {"on_update": "self_custom.doc_events.customer.on_update"}}
 
 # Scheduled Tasks
 # ---------------

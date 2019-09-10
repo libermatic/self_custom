@@ -1,6 +1,6 @@
 {
   "name": "self_custom",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Customizations for SELF",
   "main": "self_custom/public/js/index.js",
   "scripts": {

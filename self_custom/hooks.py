@@ -41,7 +41,7 @@ app_include_js = "/assets/js/self_custom.min.js"
 # web_include_js = "/assets/self_custom/js/self_custom.js"
 
 # include js in page
-# page_js = {"page" : "public/js/file.js"}
+page_js = {"point-of-sale": "public/js/point_of_sale.js"}
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}

@@ -14,6 +14,10 @@ app_license = "MIT"
 
 fixtures = [
     {
+        "doctype": "Custom Field",
+        "filters": [["name", "in", ["SMS Recipient List Number-sc_member_id"],]],
+    },
+    {
         "doctype": "Property Setter",
         "filters": [
             [
@@ -22,7 +26,7 @@ fixtures = [
                 ["Customer-mobile_no-fetch_from", "Customer-email_id-fetch_from"],
             ]
         ],
-    }
+    },
 ]
 
 # Includes in <head>

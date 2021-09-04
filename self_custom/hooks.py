@@ -12,23 +12,6 @@ app_color = "grey"
 app_email = "info@libermatic.com"
 app_license = "MIT"
 
-fixtures = [
-    {
-        "doctype": "Custom Field",
-        "filters": [["name", "in", ["SMS Recipient List Number-sc_member_id"],]],
-    },
-    {
-        "doctype": "Property Setter",
-        "filters": [
-            [
-                "name",
-                "in",
-                ["Customer-mobile_no-fetch_from", "Customer-email_id-fetch_from"],
-            ]
-        ],
-    },
-]
-
 # Includes in <head>
 # ------------------
 
@@ -41,7 +24,7 @@ app_include_js = "/assets/js/self_custom.min.js"
 # web_include_js = "/assets/self_custom/js/self_custom.js"
 
 # include js in page
-page_js = {"point-of-sale": "public/js/point_of_sale.js"}
+page_js = {"point-of-sale": "public/includes/point_of_sale.js"}
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
@@ -97,7 +80,7 @@ page_js = {"point-of-sale": "public/js/point_of_sale.js"}
 # ---------------
 # Hook on document methods and events
 
-doc_events = {"Customer": {"on_update": "self_custom.doc_events.customer.on_update"}}
+# doc_events = {"*": {"on_update": "self_custom.doc_events.on_update"}}
 
 # Scheduled Tasks
 # ---------------

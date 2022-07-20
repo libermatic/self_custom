@@ -1,1 +1,2 @@
 self_custom.patches.v13_0.add_scheme_accounting_dimension
+self_custom.patches.v13_0.setup_sales_partner

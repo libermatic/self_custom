@@ -34,6 +34,22 @@ def before_submit(doc, method):
         doc.marup_subscription = None
 
 
+def on_submit(doc, method):
+    if doc.marup_subscription:
+        if doc.voucher_type == SUBSCRIPTION_ENTRY:
+            frappe.db.set_value(
+                "Marup Subscription",
+                doc.marup_subscription,
+                "subscription_status",
+                "Billed",
+            )
+        elif doc.voucher_type == COMMISSION_ENTRY:
+            frappe.db.set_value(
+                "Marup Subscription",
+                doc.marup_subscription,
+                "commission_status",
+                "Billed",
+            )
 
 
 def before_cancel(doc, method):
@@ -54,4 +70,22 @@ def before_cancel(doc, method):
             f'{", ".join(pe_links)} exists for this <strong>Journal Entry</strong>. '
             "Please cancel that first."
         )
+
+
+def on_cancel(doc, method):
+    if doc.marup_subscription:
+        if doc.voucher_type == SUBSCRIPTION_ENTRY:
+            frappe.db.set_value(
+                "Marup Subscription",
+                doc.marup_subscription,
+                "subscription_status",
+                None,
+            )
+        elif doc.voucher_type == COMMISSION_ENTRY:
+            frappe.db.set_value(
+                "Marup Subscription",
+                doc.marup_subscription,
+                "commission_status",
+                None,
+            )
 

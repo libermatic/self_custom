@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "creation": "2022-07-19 17:47:17.902631",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "section_break_2",
+  "default_member_account",
+  "default_subscription_account",
+  "column_break_5",
+  "default_partner_account",
+  "default_commission_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_member_account",
+   "fieldtype": "Link",
+   "label": "Default Member Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_subscription_account",
+   "fieldtype": "Link",
+   "label": "Default Subscription Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_partner_account",
+   "fieldtype": "Link",
+   "label": "Default Partner Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_commission_account",
+   "fieldtype": "Link",
+   "label": "Default Commission Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-07-19 17:58:36.413953",
+ "modified_by": "Administrator",
+ "module": "SELF Custom",
+ "name": "Marup Default",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

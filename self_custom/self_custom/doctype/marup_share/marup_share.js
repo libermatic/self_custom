@@ -13,6 +13,17 @@ frappe.ui.form.on('Marup Share', {
       } else {
         frm.remove_custom_button('Settle');
       }
+      if (frm.doc.status == 'Active') {
+        frm.add_custom_button('Create Marup Subscription', () => {
+          frappe.model.open_mapped_doc({
+            method: 'self_custom.api.marup_share.make_marup_subscription',
+            frm,
+          });
+        });
+      } else {
+        frm.remove_custom_button('Create Marup Subscription');
+      }
+    }
   },
 
   customer: async function (frm) {

@@ -1,16 +1,12 @@
 import frappe
-from erpnext.accounts.doctype.payment_entry.payment_entry import PaymentEntry
 
 from self_custom.doc_events.journal_entry import COMMISSION_ENTRY, SUBSCRIPTION_ENTRY
-from self_custom.overrides.payment_entry import (
-    set_missing_values,
-    validate_reference_documents,
-)
+from self_custom.overrides.payment_entry import override_payment_entry
 
 
+@override_payment_entry
 def before_validate(doc, method):
-    PaymentEntry.set_missing_values = set_missing_values
-    PaymentEntry.validate_reference_documents = validate_reference_documents
+    pass
 
 
 def validate(doc, method):

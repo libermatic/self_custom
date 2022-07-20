@@ -114,7 +114,19 @@ def get_outstanding_reference_documents(args):
     return outstanding_invoices
 
 
-def set_missing_values(self):
+def override_payment_entry(fn):
+    from erpnext.accounts.doctype.payment_entry.payment_entry import PaymentEntry
+
+    def override(*args, **kwargs):
+        PaymentEntry.set_missing_values = _set_missing_values
+        PaymentEntry.validate_reference_documents = _validate_reference_documents
+
+        return fn(*args, **kwargs)
+    
+    return override
+
+
+def _set_missing_values(self):
     if self.payment_type == "Internal Transfer":
         for field in (
             "party",
@@ -178,7 +190,7 @@ def set_missing_values(self):
     self.set_missing_ref_details()
 
 
-def validate_reference_documents(self):
+def _validate_reference_documents(self):
     if self.party_type == "Student":
         valid_reference_doctypes = "Fees"
     elif self.party_type == "Customer":

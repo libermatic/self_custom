@@ -2,7 +2,18 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Marup Share', {
-	// refresh: function(frm) {
+  refresh: function (frm) {
+    if (!frm.doc.__islocal) {
+      if (frm.doc.status != 'Settled') {
+        frm.add_custom_button('Settle', () =>
+          frappe.confirm('Are you sure you want to settle this share?', () =>
+            frm.call('set_settled').then(() => frm.reload_doc())
+          )
+        );
+      } else {
+        frm.remove_custom_button('Settle');
+      }
+  },
 
   customer: async function (frm) {
     const { customer } = frm.doc;

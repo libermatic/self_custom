@@ -9,27 +9,56 @@ frappe.ui.form.on('Marup Subscription', {
   },
   refresh: function (frm) {
     if (frm.doc.docstatus === 1) {
-      frm.add_custom_button(
-        'Subscription Journal Entry',
-        () => {
-          frappe.model.open_mapped_doc({
-            method:
-              'self_custom.api.marup_subscription.make_subscription_entry',
-            frm,
-          });
-        },
-        'Create'
-      );
-      frm.add_custom_button(
-        'Commission Journal Entry',
-        () => {
-          frappe.model.open_mapped_doc({
-            method: 'self_custom.api.marup_subscription.make_commission_entry',
-            frm,
-          });
-        },
-        'Create'
-      );
+      if (!frm.doc.subscription_status) {
+        frm.add_custom_button(
+          'Subscription Journal Entry',
+          () => {
+            frappe.model.open_mapped_doc({
+              method:
+                'self_custom.api.marup_subscription.make_subscription_entry',
+              frm,
+            });
+          },
+          'Create'
+        );
+      } else if (frm.doc.subscription_status === 'Billed') {
+        frm.add_custom_button(
+          'Subscription Payment',
+          () => {
+            frappe.model.open_mapped_doc({
+              method:
+                'self_custom.api.marup_subscription.make_subscription_payment',
+              frm,
+            });
+          },
+          'Create'
+        );
+      }
+      if (!frm.doc.commission_status) {
+        frm.add_custom_button(
+          'Commission Journal Entry',
+          () => {
+            frappe.model.open_mapped_doc({
+              method:
+                'self_custom.api.marup_subscription.make_commission_entry',
+              frm,
+            });
+          },
+          'Create'
+        );
+      } else if (frm.doc.commission_status === 'Billed') {
+        frm.add_custom_button(
+          'Commission Payment',
+          () => {
+            frappe.model.open_mapped_doc({
+              method:
+                'self_custom.api.marup_subscription.make_commission_payment',
+              frm,
+            });
+          },
+          'Create'
+        );
+      }
     }
   },
 });

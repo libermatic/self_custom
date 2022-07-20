@@ -85,6 +85,7 @@ doc_events = {
     "Journal Entry": {
         "validate": "self_custom.doc_events.journal_entry.validate",
         "before_submit": "self_custom.doc_events.journal_entry.before_submit",
+        "before_cancel": "self_custom.doc_events.journal_entry.before_cancel",
     },
     "Payment Entry": {
         "before_validate": "self_custom.doc_events.payment_entry.before_validate",

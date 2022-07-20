@@ -33,3 +33,25 @@ def before_submit(doc, method):
     if doc.voucher_type not in MARUP_VOUCHER_TYPES:
         doc.marup_subscription = None
 
+
+
+
+def before_cancel(doc, method):
+    existing_pes = frappe.get_all(
+        "Payment Entry Reference",
+        filters={
+            "reference_doctype": "Journal Entry",
+            "reference_name": doc.name,
+            "docstatus": 1,
+        },
+        fields=["parent"],
+    )
+    if existing_pes:
+        pe_links = [
+            frappe.get_desk_link("Payment Entry", x.get("parent")) for x in existing_pes
+        ]
+        frappe.throw(
+            f'{", ".join(pe_links)} exists for this <strong>Journal Entry</strong>. '
+            "Please cancel that first."
+        )
+

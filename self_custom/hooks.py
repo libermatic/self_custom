@@ -81,7 +81,11 @@ page_js = {"point-of-sale": "public/includes/point_of_sale.js"}
 # Hook on document methods and events
 
 doc_events = {
-    "Sales Partner": {"autoname": "self_custom.doc_events.sales_partner.autoname"}
+    "Sales Partner": {"autoname": "self_custom.doc_events.sales_partner.autoname"},
+    "Journal Entry": {
+        "validate": "self_custom.doc_events.journal_entry.validate",
+        "before_submit": "self_custom.doc_events.journal_entry.before_submit",
+    },
 }
 
 # Scheduled Tasks

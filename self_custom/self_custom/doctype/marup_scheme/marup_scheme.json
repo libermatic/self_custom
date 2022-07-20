@@ -114,7 +114,24 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "modified": "2022-07-19 21:07:39.245768",
+ "links": [
+  {
+   "group": "Transactions",
+   "link_doctype": "Marup Subscription",
+   "link_fieldname": "marup_scheme"
+  },
+  {
+   "group": "Setup",
+   "link_doctype": "Marup Share",
+   "link_fieldname": "marup_scheme"
+  },
+  {
+   "group": "Setup",
+   "link_doctype": "Marup Period",
+   "link_fieldname": "marup_scheme"
+  }
+ ],
+ "modified": "2022-07-20 11:13:26.178487",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Scheme",

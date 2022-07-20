@@ -103,8 +103,14 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2022-07-19 20:13:07.472240",
+ "links": [
+  {
+   "group": "References",
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "marup_subscription"
+  }
+ ],
+ "modified": "2022-07-20 13:09:00.000264",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Subscription",

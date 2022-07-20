@@ -86,6 +86,9 @@ doc_events = {
         "validate": "self_custom.doc_events.journal_entry.validate",
         "before_submit": "self_custom.doc_events.journal_entry.before_submit",
     },
+    "Payment Entry": {
+        "before_validate": "self_custom.doc_events.payment_entry.before_validate",
+    },
 }
 
 # Scheduled Tasks
@@ -116,11 +119,12 @@ doc_events = {
 
 # Overriding Methods
 # ------------------------------
-#
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "self_custom.event.get_events"
-# }
-#
+
+override_whitelisted_methods = {
+    "erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details": "self_custom.overrides.payment_entry.get_party_details",
+    "erpnext.accounts.doctype.payment_entry.payment_entry.get_outstanding_reference_documents": "self_custom.overrides.payment_entry.get_outstanding_reference_documents",
+}
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps

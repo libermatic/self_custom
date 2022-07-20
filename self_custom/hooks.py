@@ -88,6 +88,7 @@ doc_events = {
     },
     "Payment Entry": {
         "before_validate": "self_custom.doc_events.payment_entry.before_validate",
+        "validate": "self_custom.doc_events.payment_entry.validate",
     },
 }
 

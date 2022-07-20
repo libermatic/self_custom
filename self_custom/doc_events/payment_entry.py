@@ -10,3 +10,10 @@ from self_custom.overrides.payment_entry import (
 def before_validate(doc, method):
     PaymentEntry.set_missing_values = set_missing_values
     PaymentEntry.validate_reference_documents = validate_reference_documents
+
+
+def validate(doc, method):
+    if doc.unallocated_amount != 0.0:
+        frappe.throw("There should be zero <em>Unallocated Amount</em>.")
+
+

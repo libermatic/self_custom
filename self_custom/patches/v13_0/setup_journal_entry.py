@@ -26,20 +26,20 @@ def _create_custom_fields():
 
 
 def _update_voucher_type_options():
-    entry_types = current_options = (
-        frappe.get_meta("Journal Entry").get_field("voucher_type").options
-    )
+    cur_options = frappe.get_meta("Journal Entry").get_field("voucher_type").options
 
+    entry_types_list = cur_options.split("\n")
     for entry_type in MARUP_VOUCHER_TYPES:
-        if entry_type not in entry_types:
-            entry_types += f"\n{entry_type}"
+        if entry_type not in entry_types_list:
+            entry_types_list.append(entry_type)
 
-    if entry_types != current_options:
+    new_options = "\n".join(entry_types_list)
+    if new_options != cur_options:
         if frappe.db.exists("Property Setter", "Journal Entry-voucher_type-options"):
             property_setter = frappe.get_doc(
                 "Property Setter", "Journal Entry-voucher_type-options"
             )
-            property_setter.value = entry_types
+            property_setter.value = new_options
             property_setter.save()
         else:
             frappe.get_doc(
@@ -50,6 +50,6 @@ def _update_voucher_type_options():
                     "field_name": "voucher_type",
                     "property": "options",
                     "property_type": "Text",
-                    "value": entry_types,
+                    "value": new_options,
                 }
             ).insert()

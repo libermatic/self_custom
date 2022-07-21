@@ -4,6 +4,7 @@
 from typing import Tuple
 import frappe
 from frappe.model.document import Document
+from frappe.model.mapper import get_mapped_doc
 
 from self_custom.doc_events.journal_entry import (
     COMMISSION_ENTRY,
@@ -164,7 +165,7 @@ def make_journal_entry(
             ],
         )
 
-    return frappe.model.mapper.get_mapped_doc(
+    return get_mapped_doc(
         "Marup Subscription",
         subscription.name,
         {

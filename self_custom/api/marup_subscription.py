@@ -1,4 +1,5 @@
 import frappe
+from frappe.model.mapper import get_mapped_doc
 from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_bank_cash_account
 
 
@@ -127,7 +128,7 @@ def _make_payment_entry(source_name):
         target.setup_party_account_field()
         target.set_missing_values()
 
-    return frappe.model.mapper.get_mapped_doc(
+    return get_mapped_doc(
         "Journal Entry",
         source_name,
         {

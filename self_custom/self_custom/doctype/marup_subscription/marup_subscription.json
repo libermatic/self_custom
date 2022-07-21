@@ -110,7 +110,7 @@
    "link_fieldname": "marup_subscription"
   }
  ],
- "modified": "2022-07-20 13:09:00.000264",
+ "modified": "2022-07-21 07:52:48.813363",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Subscription",
@@ -147,5 +147,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "track_changes": 1
 }

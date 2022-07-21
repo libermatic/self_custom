@@ -20,23 +20,14 @@ def on_submit(doc, method):
             voucher_type, marup_subscription = frappe.db.get_value(
                 "Journal Entry",
                 item.reference_name,
-                ["voucher_type", "marup_subcription"],
+                ["voucher_type", "marup_subscription"],
             )
             if marup_subscription:
+                msdoc = frappe.get_doc("Marup Subscription", marup_subscription)
                 if voucher_type == SUBSCRIPTION_ENTRY:
-                    frappe.db.set_value(
-                        "Marup Subscription",
-                        marup_subscription,
-                        "subscription_status",
-                        "Paid",
-                    )
+                    msdoc.set_subscription_status("Paid")
                 elif voucher_type == COMMISSION_ENTRY:
-                    frappe.db.set_value(
-                        "Marup Subscription",
-                        marup_subscription,
-                        "commission_status",
-                        "Paid",
-                    )
+                    msdoc.set_commission_status("Paid")
 
 
 def on_cancel(doc, method):
@@ -45,20 +36,11 @@ def on_cancel(doc, method):
             voucher_type, marup_subscription = frappe.db.get_value(
                 "Journal Entry",
                 item.reference_name,
-                ["voucher_type", "marup_subcription"],
+                ["voucher_type", "marup_subscription"],
             )
             if marup_subscription:
+                msdoc = frappe.get_doc("Marup Subscription", marup_subscription)
                 if voucher_type == SUBSCRIPTION_ENTRY:
-                    frappe.db.set_value(
-                        "Marup Subscription",
-                        marup_subscription,
-                        "subscription_status",
-                        "Billed",
-                    )
+                    msdoc.set_subscription_status("Billed")
                 elif voucher_type == COMMISSION_ENTRY:
-                    frappe.db.set_value(
-                        "Marup Subscription",
-                        marup_subscription,
-                        "commission_status",
-                        "Billed",
-                    )
+                    msdoc.set_commission_status("Billed")

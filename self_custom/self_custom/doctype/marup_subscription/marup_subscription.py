@@ -75,6 +75,16 @@ class MarupSubscription(Document):
             je.flags.ignore_permissions = True
             je.cancel()
 
+    def set_subscription_status(self, status):
+        self.flags.ignore_validate_update_after_submit = True
+        self.subscription_status = status
+        self.save()
+
+    def set_commission_status(self, status):
+        self.flags.ignore_validate_update_after_submit = True
+        self.commission_status = status
+        self.save()
+
 
 def make_journal_entry(
     voucher_type: str, subscription, share, scheme, settings, company

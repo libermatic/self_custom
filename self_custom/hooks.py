@@ -100,23 +100,9 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"self_custom.tasks.all"
-# 	],
-# 	"daily": [
-# 		"self_custom.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"self_custom.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"self_custom.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"self_custom.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+    "monthly_long": ["self_custom.api.marup_share.generate_subscriptions"]
+}
 
 # Testing
 # -------

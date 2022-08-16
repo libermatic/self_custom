@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2022-07-19 20:06:29.291806",
  "doctype": "DocType",
@@ -110,7 +111,7 @@
    "link_fieldname": "marup_subscription"
   }
  ],
- "modified": "2022-07-21 07:52:48.813363",
+ "modified": "2022-07-29 12:45:13.717024",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Subscription",

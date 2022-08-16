@@ -23,7 +23,12 @@ class MarupSubscription(Document):
             )
 
         if frappe.db.exists(
-            "Marup Subscription", {"marup_period": self.marup_period, "docstatus": 1}
+            "Marup Subscription",
+            {
+                "marup_share": self.marup_share,
+                "marup_period": self.marup_period,
+                "docstatus": 1,
+            },
         ):
             frappe.throw(
                 "<strong>Marup Subscription</strong> already exists for this "

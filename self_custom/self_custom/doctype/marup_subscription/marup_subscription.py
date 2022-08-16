@@ -62,10 +62,11 @@ class MarupSubscription(Document):
         subscription_entry.insert()
         subscription_entry.submit()
 
-        commission_entry = make_journal_entry(*[COMMISSION_ENTRY, *args])
-        commission_entry.flags.ignore_permissions = True
-        commission_entry.insert()
-        commission_entry.submit()
+        if share.sales_partner and share.commission_rate > 0:
+            commission_entry = make_journal_entry(*[COMMISSION_ENTRY, *args])
+            commission_entry.flags.ignore_permissions = True
+            commission_entry.insert()
+            commission_entry.submit()
 
     def before_cancel(self):
         for (name,) in frappe.get_all(

@@ -77,8 +77,14 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2022-07-27 15:20:26.945812",
+ "links": [
+  {
+   "group": "Transactions",
+   "link_doctype": "Marup Subscription",
+   "link_fieldname": "marup_share"
+  }
+ ],
+ "modified": "2022-08-17 01:59:25.490185",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Share",

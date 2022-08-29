@@ -9,4 +9,3 @@ __pycache__
 # Bench runtime
 node_modules/
 self_custom/public/node_modules
-yarn.lock

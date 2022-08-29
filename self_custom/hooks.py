@@ -80,28 +80,29 @@ page_js = {"point-of-sale": "public/includes/point_of_sale.js"}
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {"*": {"on_update": "self_custom.doc_events.on_update"}}
+doc_events = {
+    "Sales Partner": {"autoname": "self_custom.doc_events.sales_partner.autoname"},
+    "Journal Entry": {
+        "validate": "self_custom.doc_events.journal_entry.validate",
+        "before_submit": "self_custom.doc_events.journal_entry.before_submit",
+        "on_submit": "self_custom.doc_events.journal_entry.on_submit",
+        "before_cancel": "self_custom.doc_events.journal_entry.before_cancel",
+        "on_cancel": "self_custom.doc_events.journal_entry.on_cancel",
+    },
+    "Payment Entry": {
+        "before_validate": "self_custom.doc_events.payment_entry.before_validate",
+        "validate": "self_custom.doc_events.payment_entry.validate",
+        "on_submit": "self_custom.doc_events.payment_entry.on_submit",
+        "on_cancel": "self_custom.doc_events.payment_entry.on_cancel",
+    },
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"self_custom.tasks.all"
-# 	],
-# 	"daily": [
-# 		"self_custom.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"self_custom.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"self_custom.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"self_custom.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+    "monthly_long": ["self_custom.api.marup_share.generate_subscriptions"]
+}
 
 # Testing
 # -------
@@ -110,11 +111,12 @@ page_js = {"point-of-sale": "public/includes/point_of_sale.js"}
 
 # Overriding Methods
 # ------------------------------
-#
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "self_custom.event.get_events"
-# }
-#
+
+override_whitelisted_methods = {
+    "erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details": "self_custom.overrides.payment_entry.get_party_details",
+    "erpnext.accounts.doctype.payment_entry.payment_entry.get_outstanding_reference_documents": "self_custom.overrides.payment_entry.get_outstanding_reference_documents",
+}
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps

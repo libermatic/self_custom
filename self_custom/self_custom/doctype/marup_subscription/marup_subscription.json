@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-07-19 20:06:29.291806",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "marup_share",
+  "marup_period",
+  "marup_scheme",
+  "column_break_5",
+  "posting_date",
+  "amended_from",
+  "info_sec",
+  "subscription_status",
+  "commission_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "MS.YY.MM.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marup_share",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Marup Share",
+   "options": "Marup Share",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marup_period",
+   "fieldtype": "Link",
+   "label": "Marup Period",
+   "options": "Marup Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marup_scheme",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Marup Scheme",
+   "options": "Marup Scheme",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Marup Subscription",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "info_sec",
+   "fieldtype": "Section Break",
+   "label": "Information"
+  },
+  {
+   "fieldname": "subscription_status",
+   "fieldtype": "Select",
+   "label": "Subscription Status",
+   "options": "\nBilled\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_status",
+   "fieldtype": "Select",
+   "label": "Commission Status",
+   "options": "\nBilled\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Marup Subscription",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "References",
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "marup_subscription"
+  }
+ ],
+ "modified": "2022-07-29 12:45:13.717024",
+ "modified_by": "Administrator",
+ "module": "SELF Custom",
+ "name": "Marup Subscription",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

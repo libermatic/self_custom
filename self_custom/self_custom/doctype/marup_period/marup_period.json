@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "autoname": "field:marup_period_name",
+ "creation": "2022-07-19 20:00:47.623033",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "marup_period_name",
+  "marup_scheme",
+  "start_date",
+  "end_date",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "marup_period_name",
+   "fieldtype": "Data",
+   "label": "Marup Period Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "marup_scheme",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Marup Scheme",
+   "options": "Marup Scheme",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "in_create": 1,
+ "links": [],
+ "modified": "2022-07-19 20:00:47.623033",
+ "modified_by": "Administrator",
+ "module": "SELF Custom",
+ "name": "Marup Period",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager"
+  },
+  {
+   "read": 1,
+   "role": "Sales User"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

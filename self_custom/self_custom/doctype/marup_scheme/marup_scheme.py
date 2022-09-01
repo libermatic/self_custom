@@ -19,16 +19,12 @@ class MarupScheme(Document):
             order_by="name asc",
             as_list=1,
         ):
-            frappe.delete_doc("Marup Period", name)
+            frappe.delete_doc("Marup Period", name, ignore_permissions=True)
 
     @frappe.whitelist()
     def disable_period(self, period):
         if frappe.db.exists(
-            {
-                "doctype": "Marup Subscription",
-                "docstatus": 1,
-                "marup_period": self.name,
-            }
+            {"doctype": "Marup Subscription", "docstatus": 1, "marup_period": self.name}
         ):
             frappe.throw(
                 "Cannot disable: <strong>Marup Subscription</strong> already exists "
@@ -69,7 +65,9 @@ def _create_periods(doc, ignore_links):
 
     if len(existing_periods) > len(names):
         for period in existing_periods[len(names) :]:
-            frappe.delete_doc("Marup Period", period.get("name"))
+            frappe.delete_doc(
+                "Marup Period", period.get("name"), ignore_permissions=True
+            )
         return
 
     existing_names = [x.get("name") for x in existing_periods]
@@ -81,4 +79,4 @@ def _create_periods(doc, ignore_links):
                     "marup_period_name": name,
                     "marup_scheme": doc.name,
                 }
-            ).insert(ignore_links=ignore_links)
+            ).insert(ignore_links=ignore_links, ignore_permissions=True)

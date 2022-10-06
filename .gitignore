@@ -4,8 +4,11 @@
 *.swp
 tags
 self_custom/docs/current
+
 __pycache__
+.env
 
 # Bench runtime
 node_modules/
 self_custom/public/node_modules
+self_custom/public/dist

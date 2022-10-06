@@ -1,4 +1,4 @@
-const __version__ = '13.1.1';
+import { __version__ } from './version';
 
 frappe.provide('self_custom');
 

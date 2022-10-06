@@ -48,10 +48,11 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2022-07-19 20:00:47.623033",
+ "modified": "2022-10-06 12:02:28.843328",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Period",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -66,5 +67,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

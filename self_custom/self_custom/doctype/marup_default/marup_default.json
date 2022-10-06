@@ -58,12 +58,13 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-07-19 17:58:36.413953",
+ "modified": "2022-10-06 12:02:05.864011",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Default",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

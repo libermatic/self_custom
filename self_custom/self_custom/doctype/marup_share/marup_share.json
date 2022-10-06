@@ -84,10 +84,11 @@
    "link_fieldname": "marup_share"
   }
  ],
- "modified": "2022-08-17 01:59:25.490185",
+ "modified": "2022-10-06 12:03:09.558401",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Share",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -116,5 +117,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

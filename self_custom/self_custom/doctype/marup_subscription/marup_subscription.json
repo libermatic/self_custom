@@ -111,10 +111,11 @@
    "link_fieldname": "marup_subscription"
   }
  ],
- "modified": "2022-07-29 12:45:13.717024",
+ "modified": "2022-10-06 12:02:58.514851",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Subscription",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -149,5 +150,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

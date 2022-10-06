@@ -18,7 +18,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2022-07-19 17:49:27.603543",
+ "modified": "2022-10-06 12:01:54.620726",
  "modified_by": "Administrator",
  "module": "SELF Custom",
  "name": "Marup Settings",
@@ -37,5 +37,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

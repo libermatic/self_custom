@@ -20,11 +20,14 @@ def get_party_details(company, party_type, party, date, cost_center=None):
     if party_type != "Sales Partner":
         return _get_party_details(company, party_type, party, date, cost_center)
 
-    party_account = frappe.get_value(
-        "SELF Default Account",
-        filters={"company": company},
-        fieldname="default_partner_account",
-    ) or get_party_account(party_type, party, company)
+    party_account = (
+        frappe.get_value(
+            "SELF Default Account",
+            filters={"company": company},
+            fieldname="default_partner_account",
+        )
+        or get_party_account(party_type, party, company)
+    )
     account_currency = get_account_currency(party_account)
     account_balance = get_balance_on(party_account, date, cost_center=cost_center)
     party_name = frappe.db.get_value(party_type, party, "partner_name")
@@ -122,7 +125,7 @@ def override_payment_entry(fn):
         PaymentEntry.validate_reference_documents = _validate_reference_documents
 
         return fn(*args, **kwargs)
-    
+
     return override
 
 
@@ -299,4 +302,3 @@ def _validate_reference_documents(self):
                             d.reference_doctype, d.reference_name
                         )
                     )
-

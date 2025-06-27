@@ -40,7 +40,8 @@ class MarupScheme(Document):
             queue="default",
             timeout=10000,
             event="create_marup_periods",
-            job_name=f"{self.name}:create_marup_periods",
+            job_id=f"{self.name}:create_marup_periods",
+            deduplicate=True,
             doc=self,
             ignore_links=self.flags.in_insert,
         )
